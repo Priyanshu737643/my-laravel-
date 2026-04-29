@@ -452,3 +452,10 @@ Route::get("/get",[SessionController::class,"show"]);
 Route::get("/store",[SessionController::class,"storesession"]);
 Route::get("/fetch",[SessionController::class,"fetch"]);
 Route::get("/delete-session",[SessionController::class,"deletesession"]);
+
+
+//* Form Validation  --------------------------------------------------
+
+use App\Http\Controllers\UserController;
+Route::view("/form", "adduser");
+Route::post("/adduser", [UserController::class, "adduser"]);

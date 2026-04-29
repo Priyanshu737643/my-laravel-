@@ -1,3 +1,9 @@
+@php
+<pre>
+    print_r($errors->all())
+</pre>
+@endphp
+
 <form action="/adduser" method="post">
     @csrf
     <label>Name:</label>
