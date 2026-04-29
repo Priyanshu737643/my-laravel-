@@ -11,10 +11,12 @@ class UserController extends Controller
     {
         // return $request->all(); //? return all the form data
         $request->validate([
-            "username"=>"required",
-            "useremail"=>"required",
-            "userage"=>"required",
+            "username"=>"required|string|max:20",
+            "useremail"=>"required|email",
+            "userage"=>"required|numeric|between:",
             "city"=>"required",
+        ],[
+            'username.required'=>""
         ]);
         return $request->all();
     }
