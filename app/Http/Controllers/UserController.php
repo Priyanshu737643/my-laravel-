@@ -29,6 +29,8 @@ class UserController extends Controller
         //     'userage.between:18,26'=>"User Age should be not less than 18.",
         // ]);
 
-        return $request->all();
+        // return $request->all();
+        // return $request->only(['username','city']); //? to fetch the particular attribute
+        return $request->except(['useremail']); //? to exclude a particular attribute
     }
 }

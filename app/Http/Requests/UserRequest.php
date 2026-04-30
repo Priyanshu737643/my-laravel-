@@ -65,4 +65,7 @@ class UserRequest extends FormRequest
             //? strtoupper => convert to uppercase
         ]);
     }
+
+    protected $stopOnFirstFailure=true;
+    //? stop on first failure
 }
