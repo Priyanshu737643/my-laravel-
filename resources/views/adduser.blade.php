@@ -1,8 +1,8 @@
-@php
 <pre>
+@php
     print_r($errors->all())
-</pre>
 @endphp
+</pre>
 
 <form action="/adduser" method="post">
     @csrf
