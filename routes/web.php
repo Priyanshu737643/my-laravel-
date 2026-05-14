@@ -459,3 +459,71 @@ Route::get("/delete-session",[SessionController::class,"deletesession"]);
 use App\Http\Controllers\UserController;
 Route::view("/form", "adduser");
 Route::post("/adduser", [UserController::class, "adduser"]);
+
+//* Query Builder for inserting the record
+use Illuminate\Support\Facades\DB;
+
+Route::get("/add-user", function()
+{
+    DB::table('students')->insert(
+        [
+            'name'=>"Supriya",
+            'email'=>"spr143@gmail.com",
+            'age'=>26,
+            'created_at'=>now(),
+            'updated_at'=>now()
+        ]
+    );
+    return "student record inserted";
+});
+
+//* Fetching the record
+Route::get("/all-user",function(){
+    $students=DB::table('students')->get();
+    // return($students);
+    dd($students);  //? dd = dump & die
+    // dump($students);
+    // foreach($students as $student)
+    //     {
+    //         echo $student->name. "-" .$student->email. "<br>";
+    //     }
+});
+
+//* Get single record with conditions
+Route::get("/users/{id}", function($id)
+{
+    $students= DB::table('students')->where("id", $id)->first();
+    dd($students);
+});
+
+//* Update data using query Builder
+Route::get("/update-user/{id}", function($id){
+    DB::table('students')->where('id', $id)->update(['name'=>"updated name"]);
+    return "Student record updated";
+});
+
+//* Delete record
+Route::get("/delete-user/{id}", function($id)
+{
+    DB::table('students')->where("id", $id)->delete();
+    return "Student record deleted";
+});
+
+
+//* 
+Route::get("/allstd", [StudentController::class, "show"]);
+
+//* ORM with model, controller and view
+use App\Http\Controllers\StdController;
+//* crud operations
+Route::get('/students', [StdController::class,'index']);
+
+Route::get('/students/create', [StdController::class,'create']);
+
+Route::post('/students/store', [StdController::class,'store']);
+
+Route::get('/students/edit/{id}', [StdController::class,'edit']);
+
+Route::post('/students/update/{id}', [StdController::class,'update']);
+
+Route::get('/students/delete/{id}', [StdController::class,'destroy']);

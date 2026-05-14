@@ -1,33 +1,17 @@
-@foreach($students as $student)
-    <h3>Student Information</h3>
-    <p>Student Name: {{ $student['name'] }}</p>
-    <p>Student Id: {{ $student['id'] }}</p>
-    <p>Course: {{ $student['course'] }}</p>
+<h1> Student Record </h1>
+<!-- {{print_r($data)}} -->
+
+<table border= "2" >
+    <tr>
+    <td> name </td>
+    <td> email </td>
+    <td> age </td>
+    </tr>
+@foreach($data as $id=> $user)
+<tr>
+<td> {{$user-> name}}  </td>
+<td> {{$user-> email}} </td>
+<td> {{$user-> age}}   </td>
+</tr>
 @endforeach
-<a href="/">Home</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <?php
-foreach($students as $student){
-    echo "Student Information<br>";
-    echo "Student Name: " . $student['name'] . "<br>";
-    echo "Student Id: " . $student['id'] . "<br>";
-    echo "Course: " . $student['course'] . "<br><br>";
-}
-?> -->
-
-
+</table>

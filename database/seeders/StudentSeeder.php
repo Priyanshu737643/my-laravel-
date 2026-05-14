@@ -45,12 +45,12 @@ class StudentSeeder extends Seeder
         //     ]
         // ]);
 
-        //?
+        //? each() method = stores record one by one
         // $students->each(function($student){
         //     Student::insert(student);
         // });
 
-        //? using json file
+        //? using json file  = to insert file
         // $json= File::get(path:'database/json/student.json');
         // $students=collect(json_decode($json));
 
